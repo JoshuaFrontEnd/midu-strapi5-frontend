@@ -1,8 +1,9 @@
-export const Hero = () => {
-  const title = 'Strapi Blog';
-  const description = 'A blog made with Strapi';
-  const image =
-    'http://localhost:1337/uploads/photo_1421789665209_c9b2a435e3dc_e5c9fca69f.jpeg';
+import { getHomeInfo } from '@/lib/get-home-info';
+import { BlocksRenderer } from '@strapi/blocks-react-renderer';
+
+export const Hero = async () => {
+  const { title, description, image } = await getHomeInfo();
+
   return (
     <section className="bg-white dark:bg-gray-900">
       <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg-py-16 lg:grid-cols-12">
@@ -11,9 +12,9 @@ export const Hero = () => {
             {title}
           </h1>
 
-          <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-            {description}
-          </p>
+          <div className="[&>p>strong]:font-bold max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
+            <BlocksRenderer content={description} />
+          </div>
 
           <a
             href="#categories"
@@ -23,7 +24,7 @@ export const Hero = () => {
           </a>
         </div>
 
-        <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
+        <div className="hidden lg:mt-0 lg:col-span-5 lg:flex rounded-xl overflow-hidden">
           <img src={image} alt="mockup" />
         </div>
       </div>
