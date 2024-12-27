@@ -11,7 +11,7 @@ export const Categories = async () => {
       <div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
         <div className="sm:flex sm:items-center sm:justify-between sm:gap-4">
           <p className="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">
-            Todas las categorías
+            All categories
           </p>
         </div>
 
